@@ -1,0 +1,26 @@
+# Number of Pods to run
+replicaCount: 1
+
+# Image configuration
+image:
+  repository: marioaziz/go-web-app   
+  pullPolicy: IfNotPresent
+  tag: v1                            
+
+# Kubernetes Service settings
+service:
+  type: LoadBalancer                
+  port: 80                          
+  targetPort: 8080                  
+
+# Ingress (optional, disabled for now)
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+  hosts:
+    - host: go-web-app.local         # placeholder if you enable ingress later
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: []
